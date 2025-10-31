@@ -26,4 +26,244 @@ body {
   font-size: 20px;
 }
 
+@keyframes shine {
+  from {
+    left: -75%;
+  }
+  to {
+    left: 125%;
+  }
+}
+@keyframes shineMove {
+  0% {
+    left: -80%;
+    background: purple;
+  }
+  50% {
+    left: 120%;
+    background: purple;
+  }
+  100% {
+    left: -80%;
+    background: green;
+  }
+}
+@keyframes rotateShape {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes morphShape {
+  0% {
+    transform: translate(0, 0);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%);
+    border-radius: 0;
+    background-color: red;
+  }
+  25% {
+    transform: translate(calc(33.3333333333vw - 150px), 0);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%);
+    border-radius: 50%;
+    background-color: green;
+  }
+  50% {
+    transform: translate(calc(33.3333333333vw - 150px), calc(50vh - 150px));
+    clip-path: polygon(50% 0%, 50% 0%, 100% 100%, 0% 100%, 0% 1000%);
+    border-radius: 0%;
+    background-color: orange;
+  }
+  75% {
+    transform: translate(0, calc(50vh - 150px));
+    clip-path: polygon(50% 2.45%, 100% 38.77%, 80.9% 97.55%, 19.1% 97.55%, 0% 38.77%);
+    border-radius: 0%;
+    background-color: pink;
+  }
+  100% {
+    transform: translate(0, 0);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%);
+    border-radius: 0;
+    background-color: green;
+  }
+}
+@keyframes changeColor {
+  0% {
+    background-color: red;
+  }
+  25% {
+    background-color: orange;
+  }
+  50% {
+    background-color: green;
+  }
+  75% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: pink;
+  }
+}
+#btn1 {
+  background-color: black;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+}
+
+#btn1:hover {
+  background-color: white;
+  color: black;
+  transform: translateY(-5px);
+  box-shadow: 5px 5px 10px 8px gray;
+}
+
+#btn2 {
+  background: black;
+  color: white;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.5s ease;
+  transform: translateY(-10);
+}
+
+#btn2:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: yellow;
+  color: black;
+}
+
+#btn2:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background-color: yellow;
+}
+
+#btn2:hover::before {
+  animation: shine 1.2s ease-out;
+}
+
+#btn3 {
+  position: relative;
+  overflow: hidden;
+  background: green;
+  color: white;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.5s ease;
+}
+
+#btn3:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 100%;
+  background: purple;
+  transition: left 1.5s ease;
+}
+
+#btn3:hover {
+  background-color: purple;
+  color: white;
+  transform: scale(1.05);
+}
+
+#btn3:hover:before {
+  left: 120%;
+}
+
+#shape1 {
+  width: 150px;
+  height: 150px;
+  background: gray;
+  margin: 20px auto;
+  position: relative;
+  transition: background 1.5s ease, transform 1.5s ease;
+}
+
+#shape1:after {
+  content: "Hello!";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: lightgray;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+#shape1:hover {
+  background: yellow;
+  transform: scale(1.5);
+}
+
+#shape1:hover:after {
+  color: white;
+  opacity: 1;
+}
+
+#shape2 {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: red;
+  z-index: 1000;
+  transition: all 0.5 ease;
+  animation: rotateShape 5s ease-in-out infinite, morphShape 5s linear infinite;
+}
+
+#figure1 {
+  display: inline-block;
+  padding: 0;
+  margin: 20px 0;
+  background-color: transparent;
+}
+
+#figure1 img {
+  filter: grayscale(0%);
+  -webkit-filter: grayscale(0%);
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#figure1 img:hover {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(1000%);
+}
+
+#figure1 figcaption {
+  opacity: 0;
+  color: black;
+  text-align: left;
+  margin-top: 10px;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+#figure1:hover {
+  background-color: pink;
+}
+#figure1:hover figcaption {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  opacity: 1;
+}
+
 /*# sourceMappingURL=style.css.map */
